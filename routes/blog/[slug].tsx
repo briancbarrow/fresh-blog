@@ -69,7 +69,14 @@ export const handler: Handlers<Data> = {
       });
     }
     const url = new URL(`../../content/blog/${slug}/index.md`, import.meta.url);
-    const fileContent = await Deno.readTextFile(url);
+    let fileContent;
+    try {
+      fileContent = await Deno.readTextFile(url);
+    } catch (err) {
+      return new Response("404 Page not found", {
+        status: 404,
+      });
+    }
     const { content, data } = frontMatter(fileContent) as {
       data: Record<string, string>;
       content: string;

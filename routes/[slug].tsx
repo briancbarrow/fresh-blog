@@ -159,13 +159,15 @@ function Quotes(props: { quotes: any }) {
         >
           My Highlights from the book
         </h3>
-        {props.quotes.map((quote: any) => {
-          return (
-            <div class={tw`px-16 py-8 m-auto bg-lightBlue rounded mb-6`}>
-              <p class={tw`text-lg`}>{quote.text}</p>
-            </div>
-          );
-        })}
+        {props.quotes
+          ? props.quotes.map((quote: any) => {
+              return (
+                <div class={tw`px-16 py-8 m-auto bg-lightBlue rounded mb-6`}>
+                  <p class={tw`text-lg`}>{quote.text}</p>
+                </div>
+              );
+            })
+          : ""}
       </div>
     </div>
   );

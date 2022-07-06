@@ -3,9 +3,9 @@
 import { h, Fragment } from "preact";
 import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps, HandlerContext } from "$fresh/server.ts";
-import { apply, tw } from "../../utils/twind.ts";
-import { frontMatter, gfm } from "../../utils/markdown.ts";
-import NavBar from "../../components/NavBar.tsx";
+import { apply, tw } from "../utils/twind.ts";
+import { frontMatter, gfm } from "../utils/markdown.ts";
+import NavBar from "../components/NavBar.tsx";
 
 import { dotEnvConfig } from "$deps";
 dotEnvConfig({ export: true });
@@ -68,7 +68,7 @@ export const handler: Handlers<Data> = {
         headers: { location: "/" },
       });
     }
-    const url = new URL(`../../content/blog/${slug}/index.md`, import.meta.url);
+    const url = new URL(`../content/blog/${slug}/index.md`, import.meta.url);
     let fileContent;
     try {
       fileContent = await Deno.readTextFile(url);

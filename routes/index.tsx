@@ -20,7 +20,7 @@ export const handler: Handlers = {
       const page = {
         description: data.description,
         title: data.title,
-        href: `/blog/${post.name}`,
+        href: `/${post.name}`,
       };
       posts.push(page);
     }

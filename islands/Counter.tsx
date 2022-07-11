@@ -3,6 +3,8 @@ import { h } from "preact";
 import { useState } from "preact/hooks";
 import { IS_BROWSER } from "$fresh/runtime.ts";
 import { tw } from "@twind";
+import { RoundedButton } from "../components/Button.tsx";
+import { IconMinus, IconPlus } from "../components/Icons.tsx";
 
 interface CounterProps {
   start: number;
@@ -10,24 +12,25 @@ interface CounterProps {
 
 export default function Counter(props: CounterProps) {
   const [count, setCount] = useState(props.start);
-  const btn = tw`px-2 py-1 border(gray-100 1) hover:bg-gray-200`;
   return (
-    <div class={tw`flex gap-2 w-full`}>
-      <p class={tw`flex-grow-1 font-bold text-xl`}>{count}</p>
-      <button
-        class={btn}
+    <div
+      class={tw`bg-gray-100 p-4 border border-gray-200 flex items-center justify-around`}
+    >
+      <RoundedButton
+        title="Subtract 1"
         onClick={() => setCount(count - 1)}
-        disabled={!IS_BROWSER}
+        disabled={!IS_BROWSER || count <= 0}
       >
-        -1
-      </button>
-      <button
-        class={btn}
+        <IconMinus />
+      </RoundedButton>
+      <div class={tw`text-3xl tabular-nums`}>{count}</div>
+      <RoundedButton
+        title="Add 1"
         onClick={() => setCount(count + 1)}
         disabled={!IS_BROWSER}
       >
-        +1
-      </button>
+        <IconPlus />
+      </RoundedButton>
     </div>
   );
 }

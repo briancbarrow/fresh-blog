@@ -43,6 +43,9 @@ export default function Home(props: PageProps<Data>) {
   return (
     <div>
       <NavBar active="/" />
+      <div class={tw`text-center max-w-md m-auto shadow mb-5 mt-5`}>
+        <img src="/favquote.jpeg" />
+      </div>
       <div
         class={tw`relative px-4 pt-16 pb-20 bg-gray-50 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8`}
       >

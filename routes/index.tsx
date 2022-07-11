@@ -34,7 +34,6 @@ interface Post {
   description: string;
   href: string;
 }
-
 interface Data {
   posts: Post[];
 }

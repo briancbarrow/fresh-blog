@@ -1,6 +1,6 @@
 ---
 title: How To Be Perfect
-description: I love all of Michael Schur's shows, so i knew I had to read his book on moral philosophy.
+description: I love all of Michael Schur's shows, so I knew I had to read his book on moral philosophy.
 img: how-to-be-perfect/cover.jpeg
 alt: Cover of How To Be Perfect book
 book_id: 16179628

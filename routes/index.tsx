@@ -68,6 +68,7 @@ export default function Home(props: PageProps<Data>) {
           property="og:image"
           content="https://pbs.twimg.com/profile_images/1546866027635417090/crW_Y-aj_400x400.jpg"
         />
+        <meta name="robots" content="index, follow" />
       </Head>
       <NavBar active="/" />
       <div class={tw`text-center max-w-md m-auto shadow mb-5 mt-5`}>

@@ -51,6 +51,7 @@ export default function BlogPage(props: PageProps<Data>) {
           property="og:image"
           content={props.url.origin + props.data.page.img}
         />
+        <meta name="robots" content="index, follow" />
       </Head>
       <NavBar />
       <Main

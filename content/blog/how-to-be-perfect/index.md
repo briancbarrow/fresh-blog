@@ -6,6 +6,7 @@ alt: Cover of How To Be Perfect book
 book_id: 16179628
 link: https://www.amazon.com/How-Be-Perfect-Correct-Question/dp/B099BZCW7G
 category: book
+date: 07-12-2022
 ---
 
 ## How to Be Perfect

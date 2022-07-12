@@ -5,6 +5,7 @@ img: lincoln-melancholy/cover.jpeg
 alt: Cover of Lincoln's Melancholy book
 book_id: 15891031
 link: https://www.amazon.com/Lincolns-Melancholy-Depression-Challenged-President/dp/B09SK3SZVD
+date: 06-30-2022
 ---
 
 ## My admiration for Abraham Lincoln

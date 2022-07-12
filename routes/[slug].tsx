@@ -20,6 +20,7 @@ interface Page {
   file: string;
   book_id: string;
   link: string;
+  img: string;
 }
 
 interface Data {
@@ -29,7 +30,6 @@ interface Data {
 
 export default function BlogPage(props: PageProps<Data>) {
   let description;
-
   if (props.data.page.data.description) {
     description = String(props.data.page.data.description);
   }
@@ -39,6 +39,17 @@ export default function BlogPage(props: PageProps<Data>) {
         <title>{props.data.page?.title ?? "Not Found"} | Brian Blog</title>
         <link rel="stylesheet" href="/gfm.css" />
         {description && <meta name="description" content={description} />}
+        <meta
+          property="og:title"
+          content={`${props.data.page?.title ?? "Not Found"} | Brian Blog`}
+        />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={props.url.href} />
+        <meta
+          property="og:image"
+          content={props.url.origin + props.data.page.img}
+        />
       </Head>
       <NavBar />
       <Main

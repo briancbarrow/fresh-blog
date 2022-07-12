@@ -20,10 +20,20 @@ export const handler: Handlers = {
       const page = {
         description: data.description,
         title: data.title,
+        date: data.date,
         href: `/${post.name}`,
       };
       posts.push(page);
     }
+    posts.sort((a, b) => {
+      const aDate = new Date(a.date);
+      const bDate = new Date(b.date);
+      if (aDate > bDate) {
+        return -1;
+      } else {
+        return 1;
+      }
+    });
     const resp = await ctx.render({ posts });
     return resp;
   },
@@ -33,6 +43,7 @@ interface Post {
   title: string;
   description: string;
   href: string;
+  date: string;
 }
 interface Data {
   posts: Post[];

@@ -6,6 +6,7 @@ alt: learning about nuxt-content
 photographerLink: https://unsplash.com/@kimberlyfarmer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 unsplashLink: https://unsplash.com/s/photos/blog?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 photographer: Kimberly Farmer
+date: 08-01-2021
 ---
 
 Nuxt by itself is a powerful tool for creating websites and applications. Part of what makes it powerful is the ability it gives us to use modules to enhance the capabilities of the framework.

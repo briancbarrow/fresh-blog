@@ -1,7 +1,9 @@
 /** @jsx h */
-import { h } from "preact";
+/** @jsxFrag Fragment */
+import { h, Fragment } from "preact";
 import { tw } from "@twind";
 import { frontMatter, gfm } from "../utils/markdown.ts";
+import { Head } from "$fresh/runtime.ts";
 
 import NavBar from "../components/NavBar.tsx";
 import Card from "../components/Card.tsx";
@@ -52,7 +54,21 @@ interface Data {
 export default function Home(props: PageProps<Data>) {
   const { posts } = props.data;
   return (
-    <div>
+    <>
+      <Head>
+        <title> Brian Barrow Blog</title>
+        <link rel="stylesheet" href="/gfm.css" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="description" content="Brian Barrow Blog" />
+        <meta property="og:title" content="Brian Barrow Blog" />
+        <meta property="og:description" content="Brian Barrow Blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={props.url.href} />
+        <meta
+          property="og:image"
+          content="https://pbs.twimg.com/profile_images/1546866027635417090/crW_Y-aj_400x400.jpg"
+        />
+      </Head>
       <NavBar active="/" />
       <div class={tw`text-center max-w-md m-auto shadow mb-5 mt-5`}>
         <img src="/favquote.jpeg" />
@@ -83,6 +99,6 @@ export default function Home(props: PageProps<Data>) {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

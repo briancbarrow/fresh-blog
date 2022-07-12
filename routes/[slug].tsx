@@ -38,6 +38,7 @@ export default function BlogPage(props: PageProps<Data>) {
       <Head>
         <title>{props.data.page?.title ?? "Not Found"} | Brian Blog</title>
         <link rel="stylesheet" href="/gfm.css" />
+        <meta name="twitter:card" content="summary_large_image" />
         {description && <meta name="description" content={description} />}
         <meta
           property="og:title"

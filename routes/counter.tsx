@@ -5,29 +5,6 @@ import { tw } from "@twind";
 import Counter from "../islands/Counter.tsx";
 import NavBar from "../components/NavBar.tsx";
 
-// export const handler: Handlers = {
-//   async GET(_req, ctx) {
-//     let posts: Post[] = [];
-//     for await (const post of Deno.readDir(`./content/blog`)) {
-//       const fileContent = await Deno.readTextFile(
-//         `./content/blog/${post.name}/index.md`
-//       );
-//       const { content, data } = frontMatter(fileContent) as {
-//         data: Record<string, string>;
-//         content: string;
-//       };
-//       const page = {
-//         description: data.description,
-//         title: data.title,
-//         href: `/${post.name}`,
-//       };
-//       posts.push(page);
-//     }
-//     const resp = await ctx.render({ posts });
-//     return resp;
-//   },
-// };
-
 export default function CounterPage() {
   return (
     <div>

@@ -8,6 +8,7 @@
     "twind": "https://esm.sh/twind@0.16.17",
     "twind/": "https://esm.sh/twind@0.16.17/",
     "$twind/typography": "https://cdn.skypack.dev/@twind/typography",
-    "$deps": "./deps.ts"
+    "$deps": "./deps.ts",
+    "$storyblok": "https://deno.land/x/storyblok_deno_sdk/mod.ts"
   }
 }

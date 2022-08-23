@@ -137,7 +137,7 @@ export const handler: Handlers<Data> = {
   },
 };
 
-function Content(props: { page: Page; quotes: any }) {
+function Content(props: { page: Page }) {
   const main = tw`py-8 overflow-hidden max-w-prose m-auto`;
   const title = tw`block md:mt-10 mt-4 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900  sm:text-4xl`;
   const body = tw`mx-auto mt-6 prose prose-lg text-gray-500`;

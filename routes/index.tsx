@@ -27,6 +27,27 @@ export const handler: Handlers = {
       };
       posts.push(page);
     }
+    let storyblokPosts = [];
+    try {
+      let storyblokReq = await fetch(
+        "https://api-us.storyblok.com/v2/cdn/stories?token=Js8YqSPzVStKxWXZjL4PlAtt"
+      );
+      const storyblokJson = await storyblokReq.json();
+      // storyblokPosts = storyblokJson.stories;
+      console.log("storyblokPosts", storyblokJson.stories);
+      for (const post of storyblokJson.stories) {
+        const page = {
+          description: post.content.description,
+          title: post.name,
+          date: post.published_at,
+          href: `/storyblok/${post.slug}`,
+        };
+        storyblokPosts.push(page);
+      }
+    } catch (err) {
+      console.log("ERROR GETTING POSTS", err);
+    }
+
     posts.sort((a, b) => {
       const aDate = new Date(a.date);
       const bDate = new Date(b.date);
@@ -36,7 +57,7 @@ export const handler: Handlers = {
         return 1;
       }
     });
-    const resp = await ctx.render({ posts });
+    const resp = await ctx.render({ posts, storyblokPosts });
     return resp;
   },
 };
@@ -52,7 +73,7 @@ interface Data {
 }
 
 export default function Home(props: PageProps<Data>) {
-  const { posts } = props.data;
+  const { posts, storyblokPosts } = props.data;
   return (
     <>
       <Head>
@@ -97,6 +118,16 @@ export default function Home(props: PageProps<Data>) {
             {posts.map((post: Post) => {
               return <Card post={post} />;
             })}
+          </div>
+          <div class={tw`text-center`}>
+            <h3 class={tw`text-xl font-extrabold`}>Storyblok Posts</h3>
+            <div
+              class={tw`grid max-w-lg gap-5 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none`}
+            >
+              {storyblokPosts.map((post: Post) => {
+                return <Card post={post} />;
+              })}
+            </div>
           </div>
         </div>
       </div>

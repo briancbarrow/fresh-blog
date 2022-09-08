@@ -20,7 +20,7 @@ export const handler: Handlers<Data> = {
     console.log("ctx", _ctx);
     return new Response(
       JSON.stringify({
-        response_token: "sha256=" + myhmac,
+        response_token: myhmac,
       })
     );
   },

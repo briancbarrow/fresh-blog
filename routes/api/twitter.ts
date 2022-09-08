@@ -18,6 +18,10 @@ export const handler: Handlers<Data> = {
     console.log("request", myhmac);
     console.log("crc_token", req.crc_token);
     console.log("ctx", _ctx);
-    return new Response(myhmac);
+    return new Response(
+      JSON.stringify({
+        response_token: "sha256=" + myhmac,
+      })
+    );
   },
 };

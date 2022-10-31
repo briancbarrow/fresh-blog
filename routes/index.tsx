@@ -1,7 +1,3 @@
-/** @jsx h */
-/** @jsxFrag Fragment */
-import { h, Fragment } from "preact";
-import { tw } from "@twind";
 import { frontMatter, gfm } from "../utils/markdown.ts";
 import { Head } from "$fresh/runtime.ts";
 
@@ -34,7 +30,6 @@ export const handler: Handlers = {
       );
       const storyblokJson = await storyblokReq.json();
       // storyblokPosts = storyblokJson.stories;
-      console.log("storyblokPosts", storyblokJson.stories);
       for (const post of storyblokJson.stories) {
         const page = {
           description: post.content.description,
@@ -92,38 +87,30 @@ export default function Home(props: PageProps<Data>) {
         <meta name="robots" content="index, follow" />
       </Head>
       <NavBar active="/" />
-      <div class={tw`text-center max-w-md m-auto shadow mb-5 mt-5`}>
+      <div class="text-center max-w-md m-auto shadow mb-5 mt-5">
         <img src="/favquote.jpeg" />
       </div>
-      <div
-        class={tw`relative px-4 pt-16 pb-20 bg-gray-50 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8`}
-      >
-        <div class={tw`absolute inset-0`}>
-          <div class={tw`bg-white h-1/3 sm:h-2/3`}></div>
+      <div class="relative px-4 pt-16 pb-20 bg-gray-50 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+        <div class="absolute inset-0">
+          <div class="bg-white h-1/3 sm:h-2/3"></div>
         </div>
-        <div class={tw`relative mx-auto max-w-7xl`}>
-          <div class={tw`text-center`}>
-            <h2
-              class={tw`text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl`}
-            >
+        <div class="relative mx-auto max-w-7xl">
+          <div class="text-center">
+            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               My Blog
             </h2>
-            <p class={tw`max-w-2xl mx-auto mt-3 text-xl text-gray-500 sm:mt-4`}>
+            <p class="max-w-2xl mx-auto mt-3 text-xl text-gray-500 sm:mt-4">
               Sometimes I write about stuff. That stuff is here.
             </p>
           </div>
-          <div
-            class={tw`grid max-w-lg gap-5 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none`}
-          >
+          <div class="grid max-w-lg gap-5 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none">
             {posts.map((post: Post) => {
               return <Card post={post} />;
             })}
           </div>
-          <div class={tw`text-center`}>
-            <h3 class={tw`text-xl font-extrabold`}>Storyblok Posts</h3>
-            <div
-              class={tw`grid max-w-lg gap-5 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none`}
-            >
+          <div class="text-center">
+            <h3 class="text-xl font-extrabold">Storyblok Posts</h3>
+            <div class="grid max-w-lg gap-5 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none">
               {storyblokPosts.map((post: Post) => {
                 return <Card post={post} />;
               })}

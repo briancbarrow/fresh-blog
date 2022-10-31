@@ -1,9 +1,5 @@
-/** @jsx h */
-/** @jsxFrag Fragment */
-import { h, Fragment } from "preact";
 import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps, HandlerContext } from "$fresh/server.ts";
-import { apply, tw } from "../../utils/twind.ts";
 import { frontMatter, gfm } from "../../utils/markdown.ts";
 import NavBar from "../../components/NavBar.tsx";
 import Storyblok from "$storyblok";
@@ -114,23 +110,22 @@ export const handler: Handlers<Data> = {
 };
 
 function Content(props: { page: Page }) {
-  const main = tw`py-8 overflow-hidden max-w-prose m-auto`;
-  const title = tw`block md:mt-10 mt-4 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900  sm:text-4xl`;
-  const body = tw`mx-auto mt-6 prose prose-lg text-gray-500`;
+  const main = `py-8 overflow-hidden max-w-prose m-auto`;
+  const title = `block md:mt-10 mt-4 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900  sm:text-4xl`;
+  const body = `mx-auto mt-6 prose prose-lg text-gray-500`;
   const html = gfm.render(props.page.markdown);
   const description = props.page.description;
   return (
-    <main class={main}>
-      <div class={tw`max-w-2xl m-auto mt-4`}>
-        <img
-          class={tw`w-full max-w-lg m-auto rounded-lg`}
-          src={props.page.img}
-        />
+    <main class="py-8 overflow-hidden max-w-prose m-auto">
+      <div class="max-w-2xl m-auto mt-4">
+        <img class="w-full max-w-lg m-auto rounded-lg" src={props.page.img} />
       </div>
-      <h1 class={title}>{props.page.title}</h1>
-      <p class={tw`mt-8 text-xl leading-8 text-gray-500`}>{description}</p>
+      <h1 class="block md:mt-10 mt-4 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900  sm:text-4xl">
+        {props.page.title}
+      </h1>
+      <p class="mt-8 text-xl leading-8 text-gray-500">{description}</p>
       <div
-        class={`${body} markdown-body`}
+        class="mx-auto mt-6 prose prose-lg text-gray-500 markdown-body"
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </main>

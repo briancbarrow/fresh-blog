@@ -1,8 +1,5 @@
-/** @jsx h */
-import { h } from "preact";
 import { useState } from "preact/hooks";
 import { IS_BROWSER } from "$fresh/runtime.ts";
-import { tw } from "@twind";
 import { RoundedButton } from "../components/Button.tsx";
 import { IconMinus, IconPlus } from "../components/Icons.tsx";
 
@@ -14,7 +11,7 @@ export default function Counter(props: CounterProps) {
   const [count, setCount] = useState(props.start);
   return (
     <div
-      class={tw`bg-gray-100 p-4 border border-gray-200 flex items-center justify-around`}
+      class="bg-gray-100 p-4 border border-gray-200 flex items-center justify-around"
     >
       <RoundedButton
         title="Subtract 1"
@@ -23,7 +20,7 @@ export default function Counter(props: CounterProps) {
       >
         <IconMinus />
       </RoundedButton>
-      <div class={tw`text-3xl tabular-nums`}>{count}</div>
+      <div class="text-3xl tabular-nums">{count}</div>
       <RoundedButton
         title="Add 1"
         onClick={() => setCount(count + 1)}

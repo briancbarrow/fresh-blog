@@ -1,7 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
-import { tw } from "@twind";
-
 import Counter from "../islands/Counter.tsx";
 import NavBar from "../components/NavBar.tsx";
 
@@ -9,8 +5,8 @@ export default function CounterPage() {
   return (
     <div>
       <NavBar active="/" />
-      <div class={tw`max-w-2xl m-auto`}>
-        <p class={tw`my-10`}>
+      <div class="max-w-2xl m-auto">
+        <p class="my-10">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -20,7 +16,7 @@ export default function CounterPage() {
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <Counter start={5} />
-        <p class={tw`mt-10`}>
+        <p class="mt-10">
           Leverage agile frameworks to provide a robust synopsis for high level
           overviews. Iterative approaches to corporate strategy foster
           collaborative thinking to further the overall value proposition.
